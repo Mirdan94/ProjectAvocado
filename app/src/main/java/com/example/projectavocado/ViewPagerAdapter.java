@@ -1,5 +1,7 @@
 package com.example.projectavocado;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -14,7 +16,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return new BoardFragment();
+        BoardFragment fragment = new BoardFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("pos", position);
+        fragment.setArguments(bundle);
+        return fragment;
     }
 
     @Override
